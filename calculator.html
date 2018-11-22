@@ -10,16 +10,13 @@
 #result{
 	height: 40px;
 }
-
-
-
 </style>
 <body>
 	<br>
 	<br>
 	<br>
 	<br>
-	<div >
+	<div align="center">
 		<input  type="" name="" id="input" placeholder="input">
 		<br>
 		<input  disabled="" type="" name="" id="result" placeholder="result">
@@ -43,18 +40,19 @@
 		<br>
 		<input onclick="inputFun(this)" type="button" name="" value="9" id="input9">
 		<input onclick="inputFun(this)" type="button" name="" value="." id="inputDot">
-		<input style="" onclick="showResult()" type="button" name="" value="=" id="resultButton">
-		<input onclick="inputFun(this)" type="button" name="" value="/" id="div">
 		<input onclick="inputFun(this)" type="button" name="" value="%" id="mod">
+		
+		<input onclick="inputFun(this)" type="button" name="" value="/" id="div">
+		
 		<br>	
 				
 		<input onclick="clearInput()" type="button" name="" id="clearInput" value="Clear">
+		<input style="width: 50px;" onclick="showResult()" type="button" name="" value="=" id="resultButton">
 
 	</div>
 
 
 	<script type="text/javascript">
-
 		function clearInput(){
 			document.getElementById('input').value = "";
 			document.getElementById('result').value = "";
@@ -62,21 +60,17 @@
 			document.getElementById('input').style.color = "black";
 			document.getElementById('result').style.background = "white";
 			document.getElementById('result').style.color = "black";
-
 		}
-
 		function inputFun(e){
 			var p = document.getElementById('input');
 			p.style.background = "green";
 			p.style.color = "white";
 			p.value += e.value;
 		}
-
 		function showResult(){
 			var p = document.getElementById('input');
 			var value = p.value.trim();
 			var resultInput = document.getElementById('result');
-
 			var findCharPlus = -2;
 			findCharPlus = value.indexOf("+");
 			if(findCharPlus>-1)
@@ -84,13 +78,10 @@
 				var arrVal = value.split('+');
 				var num1 = parseFloat(arrVal[0]);
 				var num2 = parseFloat(arrVal[1]);
-
 				var res = num1 + num2;
 				resultInput.value = res.toFixed(2);
 				resultInput.style.background = "#33adff";
 				resultInput.style.color = "white";
-
-
 			}
 			var findCharMinus = -2;
 			findCharMinus = value.indexOf("-");
@@ -99,13 +90,11 @@
 				var arrVal = value.split('-');
 				var num1 = parseFloat(arrVal[0]);
 				var num2 = parseFloat(arrVal[1]);
-
 				var res = num1 - num2;
 				resultInput.value = res.toFixed(2);
 				resultInput.style.background = "#33adff";
 				resultInput.style.color = "white";
 			}
-
 			var findCharMult = -2;
 			findCharMult = value.indexOf("*");
 			if(findCharMult>-1)
@@ -113,13 +102,11 @@
 				var arrVal = value.split('*');
 				var num1 = parseFloat(arrVal[0]);
 				var num2 = parseFloat(arrVal[1]);
-
 				var res = num1 * num2;
 				resultInput.value = res.toFixed(2);
 				resultInput.style.background = "#33adff";
 				resultInput.style.color = "white";
 			}
-
 			var findCharDiv = -2;
 			findCharDiv = value.indexOf("/");
 			if(findCharDiv>-1)
@@ -127,7 +114,6 @@
 				var arrVal = value.split('/');
 				var num1 = parseFloat(arrVal[0]);
 				var num2 = parseFloat(arrVal[1]);
-
 				if(num2 == 0)
 				{
 					resultInput.value = "Divison can't be 0";
@@ -142,7 +128,6 @@
 				}
 				
 			}
-
 			var findCharMod = -2;
 			findCharDiv = value.indexOf("%");
 			if(findCharDiv>-1)
@@ -150,19 +135,12 @@
 				var arrVal = value.split('%');
 				var num1 = parseFloat(arrVal[0]);
 				var num2 = parseFloat(arrVal[1]);
-
 				var res = num1 % num2;
 				resultInput.value = res.toFixed(2);
 				resultInput.style.background = "#33adff";
 				resultInput.style.color = "white";
 			}
-
-
 		}
-
-
-
-
 	</script>
 </body>
 </html>
