@@ -19,45 +19,35 @@
 	<br>
 	<br>
 	<br>
-	<div align="center">
+	<div >
 		<input  type="" name="" id="input" placeholder="input">
 		<br>
 		<input  disabled="" type="" name="" id="result" placeholder="result">
 		<br>
-		<br>
+		
 
 		<input onclick="inputFun(this)" type="button" name="" value="0" id="input0">
 		<input onclick="inputFun(this)" type="button" name="" value="1" id="input1">
 		<input onclick="inputFun(this)" type="button" name="" value="2" id="input2">
+		<input onclick="inputFun(this)" type="button" name="" value="+" id="plus">
+		<br>
 		<input onclick="inputFun(this)" type="button" name="" value="3" id="input3">
 		<input onclick="inputFun(this)" type="button" name="" value="4" id="input4">
 		<input onclick="inputFun(this)" type="button" name="" value="5" id="input5">
+		<input onclick="inputFun(this)" type="button" name="" value="-" id="minus">
+		<br>
 		<input onclick="inputFun(this)" type="button" name="" value="6" id="input6">
 		<input onclick="inputFun(this)" type="button" name="" value="7" id="input7">
 		<input onclick="inputFun(this)" type="button" name="" value="8" id="input8">
-		<input onclick="inputFun(this)" type="button" name="" value="9" id="input9">
-		<br>
-		<br>
-		<input onclick="inputFun(this)" type="button" name="" value="." id="inputDot">
-
-		<br>
-		<br>
-
-		<input onclick="inputFun(this)" type="button" name="" value="+" id="plus">
-		<input onclick="inputFun(this)" type="button" name="" value="-" id="minus">
 		<input onclick="inputFun(this)" type="button" name="" value="*" id="mult">
+		<br>
+		<input onclick="inputFun(this)" type="button" name="" value="9" id="input9">
+		<input onclick="inputFun(this)" type="button" name="" value="." id="inputDot">
+		<input style="" onclick="showResult()" type="button" name="" value="=" id="resultButton">
 		<input onclick="inputFun(this)" type="button" name="" value="/" id="div">
 		<input onclick="inputFun(this)" type="button" name="" value="%" id="mod">
-
-		<br>
-		<br>
-
-
-		<input style="width: 50px;" onclick="showResult()" type="button" name="" value="=" id="resultButton">
-
-		<br>
-		<br>
-
+		<br>	
+				
 		<input onclick="clearInput()" type="button" name="" id="clearInput" value="Clear">
 
 	</div>
@@ -96,7 +86,7 @@
 				var num2 = parseFloat(arrVal[1]);
 
 				var res = num1 + num2;
-				resultInput.value = res;
+				resultInput.value = res.toFixed(2);
 				resultInput.style.background = "#33adff";
 				resultInput.style.color = "white";
 
@@ -111,7 +101,7 @@
 				var num2 = parseFloat(arrVal[1]);
 
 				var res = num1 - num2;
-				resultInput.value = res;
+				resultInput.value = res.toFixed(2);
 				resultInput.style.background = "#33adff";
 				resultInput.style.color = "white";
 			}
@@ -125,7 +115,7 @@
 				var num2 = parseFloat(arrVal[1]);
 
 				var res = num1 * num2;
-				resultInput.value = res;
+				resultInput.value = res.toFixed(2);
 				resultInput.style.background = "#33adff";
 				resultInput.style.color = "white";
 			}
@@ -146,7 +136,7 @@
 				}
 				else{
 					var res = num1 / num2;
-					resultInput.value = res;
+					resultInput.value = res.toFixed(2);
 					resultInput.style.background = "#33adff";
 					resultInput.style.color = "white";
 				}
@@ -162,7 +152,7 @@
 				var num2 = parseFloat(arrVal[1]);
 
 				var res = num1 % num2;
-				resultInput.value = res;
+				resultInput.value = res.toFixed(2);
 				resultInput.style.background = "#33adff";
 				resultInput.style.color = "white";
 			}
