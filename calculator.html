@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
 	<title>Calculator lab task</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -33,7 +35,7 @@
 <body>
 
 	
-	
+	<!-- new model starts -->
 	<div class="container">
 		<div class="row justify-content-center ">
 			<div class="col-4 bg-dark text-white">
@@ -48,36 +50,36 @@
 							<div class="col-9">
 
 								<div class="row">
-									<div class="col-4 customBorder bg-light text-dark py-1">%</div>
-									<div class="col-4  customBorder bg-light text-dark">/</div>
-									<div class="col-4 customBorder bg-light text-dark py-1">*</div>
+									<div class="col-4 classForEvent customBorder bg-light text-dark py-1">%</div>
+									<div class="col-4 classForEvent customBorder bg-light text-dark">/</div>
+									<div class="col-4 classForEvent customBorder bg-light text-dark py-1">*</div>
 								</div>
 
 								<div class="row">
-									<div class="col-4 customBorder bg-light text-dark py-1">7</div>
-									<div class="col-4  customBorder bg-light text-dark">8</div>
-									<div class="col-4 customBorder bg-light text-dark py-1">9</div>
+									<div class="col-4 classForEvent customBorder bg-light text-dark py-1">7</div>
+									<div class="col-4 classForEvent customBorder bg-light text-dark">8</div>
+									<div class="col-4 classForEvent customBorder bg-light text-dark py-1">9</div>
 								</div>
 
 								
 								<div class="row">
-									<div class="col-4 customBorder bg-light text-dark py-1">4</div>
-									<div class="col-4  customBorder bg-light text-dark">5</div>
-									<div class="col-4 customBorder bg-light text-dark py-1">6</div>
+									<div class="col-4 classForEvent customBorder bg-light text-dark py-1">4</div>
+									<div class="col-4 classForEvent customBorder bg-light text-dark">5</div>
+									<div class="col-4 classForEvent customBorder bg-light text-dark py-1">6</div>
 								</div>
 
 
 
 								<div class="row">
-									<div class="col-4 customBorder bg-light text-dark py-1">1</div>
-									<div class="col-4  customBorder bg-light text-dark">2</div>
-									<div class="col-4 customBorder bg-light text-dark py-1">3</div>
+									<div class="col-4 classForEvent customBorder bg-light text-dark py-1">1</div>
+									<div class="col-4 classForEvent customBorder bg-light text-dark">2</div>
+									<div class="col-4 classForEvent customBorder bg-light text-dark py-1">3</div>
 								</div>
 
 
 								<div class="row">
-									<div class="col-8 py-1 customBorder bg-light text-dark">0</div>
-									<div class="col-4 py-1 customBorder bg-light text-dark">.</div>
+									<div class="col-8 classForEvent py-1 customBorder bg-light text-dark">0</div>
+									<div class="col-4 classForEvent py-1 customBorder bg-light text-dark">.</div>
 								</div>
 
 
@@ -85,54 +87,23 @@
 							
 							<div class="col-3">
 								<div class="row">
-									<div class="col py-1 customBorder bg-light text-dark">-</div>
+									<div class="col classForEvent py-1 customBorder bg-light text-dark">-</div>
 								</div>
 								<div class="row">
-									<div class="col py-1  customBorder bg-light text-dark">+</div>
+									<div class="col classForEvent py-1  customBorder bg-light text-dark">+</div>
 								</div>
 								<div class="row">
-									<div class="col py-1 customBorder bg-light text-dark">Clear</div>
+									<div class="col classForEvent py-1 customBorder bg-light text-dark">Clear</div>
 
 								</div>
 
 								<div class="row">
-									<div class="col py-1 customHeight customBorder bg-light text-dark d-flex align-items-center justify-content-center"><p class="mb-0">Enter</p></div>
+									<div class="col classForEvent py-1 customHeight customBorder bg-light text-dark d-flex align-items-center justify-content-center"><p class="mb-0">Enter</p></div>
 
 								</div>
 
 
 							</div>
-
-
-							
-
-						<!-- 	<div class="col-3 customBorder bg-light text-dark">-</div>
-
-							
-
-							<div class="col-3 customBorder bg-light text-dark">AC</div>
-
-
-
-							
-
-							<div class="col-3 customBorder bg-light text-dark">Square</div>
-							
-							
-
-
-							
-
-
-							<div class="col-3 customHeight customBorder bg-light text-dark">Enter</div> -->
-							
-
-
-							
-							
-							
-							
-
 
 						</div>
 					</div>
@@ -142,15 +113,14 @@
 			</div>
 		</div>
 	</div>
+	<!-- new model end -->
 
 
 
 
 
 
-
-
-
+	<!-- old model starts -->
 	<br>
 	<br>
 	<br>
@@ -189,10 +159,40 @@
 		<input style="width: 50px;" onclick="showResult()" type="button" name="" value="=" id="resultButton">
 
 	</div>
-
+	<!-- old model ends -->
 
 	<script type="text/javascript">
 		
+		
+		
+
+		//new model js starts
+		var objDiv = document.getElementsByClassName('classForEvent');
+		for(var i = 0; i<objDiv.length; i++)
+		{
+			objDiv[i].addEventListener("mousedown" , function(){
+				//event.preventDefault();
+				this.classList.remove('bg-light' , 'text-dark');
+				this.classList.add('bg-danger');
+				this.style.color = "white";
+
+
+			})
+		}
+
+		for(var i = 0; i<objDiv.length; i++)
+		{
+			objDiv[i].addEventListener("mouseup" , function(){
+				//event.preventDefault();
+				this.classList.remove('bg-danger');
+				this.classList.add('bg-light' , 'text-dark');
+				this.style.color = "white";
+			})
+		}
+
+
+
+		// old models js starts
 		//on press enter key, it shows result
 		var input = document.getElementById('input');
 		input.addEventListener("keyup" , function(event){
@@ -211,7 +211,7 @@
 
 
 
-		input.addEventListener()
+		
 
 		//clear the results and input
 		function clearInput(){
