@@ -29,6 +29,10 @@
 	
 }
 
+.mainDiv{
+	height: 100vh;
+}
+
 </style>
 
 
@@ -37,7 +41,7 @@
 	
 	<!-- new model starts -->
 	<div class="container">
-		<div class="row justify-content-center ">
+		<div class="row justify-content-center mt-5">
 			<div class="col-4 bg-dark text-white">
 				<div class="row p-2">
 					<div class="col bg-secondary text-right py-3 h5">Display</div>
@@ -125,7 +129,7 @@
 	<br>
 	<br>
 	<br>
-	<div align="center">
+	<div align="center" class="d-none">
 		<input  type="" name="" id="input" placeholder="input">
 		<br>
 		<input  disabled="" type="" name="" id="result" placeholder="result">
@@ -173,7 +177,7 @@
 			objDiv[i].addEventListener("mousedown" , function(){
 				//event.preventDefault();
 				this.classList.remove('bg-light' , 'text-dark');
-				this.classList.add('bg-danger');
+				this.classList.add('bg-success');
 				this.style.color = "white";
 
 
@@ -184,7 +188,7 @@
 		{
 			objDiv[i].addEventListener("mouseup" , function(){
 				//event.preventDefault();
-				this.classList.remove('bg-danger');
+				this.classList.remove('bg-success');
 				this.classList.add('bg-light' , 'text-dark');
 				this.style.color = "white";
 			})
