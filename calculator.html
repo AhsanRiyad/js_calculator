@@ -6,6 +6,10 @@
 	<title>Calculator lab task</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
 </head>
 
 
@@ -97,12 +101,17 @@
 									<div class="col classForEvent py-1  customBorder bg-light text-dark">+</div>
 								</div>
 								<div class="row">
-									<div class="col classForEvent py-1 customBorder bg-light text-dark">Clear</div>
+									<div class="col classForEvent py-1 customBorder bg-light text-dark">CLR</div>
 
 								</div>
 
 								<div class="row">
-									<div class="col classForEvent py-1 customHeight customBorder bg-light text-dark d-flex align-items-center justify-content-center"><p class="mb-0">Enter</p></div>
+									<div class="col classForEvent py-1  customBorder bg-light text-dark d-flex align-items-center justify-content-center"><p class="mb-0">DEL</p></div>
+
+								</div>
+
+								<div class="row">
+									<div class="col classForEvent py-1  customBorder bg-light text-dark d-flex align-items-center justify-content-center"><p class="mb-0">=</p></div>
 
 								</div>
 
@@ -176,7 +185,7 @@
 					p.innerHTML = '';
 				}
 				p.innerHTML += 0;
-						
+				
 				
 			}
 			if(event.keyCode==49 || event.keyCode==97){	
@@ -185,7 +194,7 @@
 					p.innerHTML = '';
 				}
 				p.innerHTML += 1;
-						
+				
 				
 			}
 			if(event.keyCode==50 || event.keyCode==98){	
@@ -194,7 +203,7 @@
 					p.innerHTML = '';
 				}
 				p.innerHTML += 2;
-						
+				
 				
 			}
 			if(event.keyCode==51 || event.keyCode==99){	
@@ -203,7 +212,7 @@
 					p.innerHTML = '';
 				}
 				p.innerHTML += 3;
-						
+				
 				
 			}
 			if(event.keyCode==52 || event.keyCode==100){	
@@ -212,7 +221,7 @@
 					p.innerHTML = '';
 				}
 				p.innerHTML += 4;
-						
+				
 				
 			}
 			if(event.keyCode==53 || event.keyCode==101){	
@@ -221,7 +230,7 @@
 					p.innerHTML = '';
 				}
 				p.innerHTML += 5;
-						
+				
 				
 			}
 			if(event.keyCode==54 || event.keyCode==102){	
@@ -230,7 +239,7 @@
 					p.innerHTML = '';
 				}
 				p.innerHTML += 6;
-						
+				
 				
 			}
 			if(event.keyCode==55 || event.keyCode==103){	
@@ -239,7 +248,7 @@
 					p.innerHTML = '';
 				}
 				p.innerHTML += 7;
-						
+				
 				
 			}
 			if(event.keyCode==56 || event.keyCode==104){	
@@ -248,7 +257,7 @@
 					p.innerHTML = '';
 				}
 				p.innerHTML += 8;
-						
+				
 				
 			}
 			if(event.keyCode==57 || event.keyCode==105){	
@@ -257,9 +266,71 @@
 					p.innerHTML = '';
 				}
 				p.innerHTML += 9;
-						
+				
 				
 			}
+			if(event.keyCode==107){	
+				if(p.innerHTML == 'Display')
+				{
+					p.innerHTML = '';
+				}
+				p.innerHTML += '+';
+				
+				
+			}
+			if(event.keyCode==109){	
+				if(p.innerHTML == 'Display')
+				{
+					p.innerHTML = '';
+				}
+				p.innerHTML += '-';
+				
+				
+			}
+			if(event.keyCode==106){	
+				if(p.innerHTML == 'Display')
+				{
+					p.innerHTML = '';
+				}
+				p.innerHTML += '*';
+				
+				
+			}
+			if(event.keyCode==111){	
+				if(p.innerHTML == 'Display')
+				{
+					p.innerHTML = '';
+				}
+				p.innerHTML += '/';
+				
+				
+			}
+			if(event.keyCode==110){	
+				if(p.innerHTML == 'Display')
+				{
+					p.innerHTML = '';
+				}
+				p.innerHTML += '.';
+				
+				
+			}
+			if(event.keyCode==46){	
+				let val = p.innerHTML;
+				let arr = val.split('');
+				if(p.innerHTML == 'Display' || arr.length < 2)
+				{
+					p.innerHTML = 'Display';
+				}
+				else{
+					let val = p.innerHTML;
+					let arr = val.split('');
+					arr.pop();
+					p.innerHTML = arr.join('');
+				}
+				
+				
+			}
+
 		})
 		
 		
