@@ -59,20 +59,20 @@
 
 								<div class="row">
 									<div onclick="takeinput(this);" class="col-4 classForEvent customBorder bg-light text-dark py-1">%</div>
-									<div onclick="takeinput(this);" class="col-4 classForEvent customBorder bg-light text-dark">/</div>
+									<div onclick="takeinput(this);" class="col-4 classForEvent customBorder bg-light text-dark py-1">/</div>
 									<div onclick="takeinput(this);" class="col-4 classForEvent customBorder bg-light text-dark py-1">*</div>
 								</div>
 
 								<div class="row">
 									<div onclick="takeinput(this);" class="col-4 classForEvent customBorder bg-light text-dark py-1">7</div>
-									<div onclick="takeinput(this);" class="col-4 classForEvent customBorder bg-light text-dark">8</div>
+									<div onclick="takeinput(this);" class="col-4 classForEvent customBorder bg-light text-dark py-1">8</div>
 									<div onclick="takeinput(this);" class="col-4 classForEvent customBorder bg-light text-dark py-1">9</div>
 								</div>
 
 								
 								<div class="row">
 									<div onclick="takeinput(this);" class="col-4 classForEvent customBorder bg-light text-dark py-1">4</div>
-									<div onclick="takeinput(this);" class="col-4 classForEvent customBorder bg-light text-dark">5</div>
+									<div onclick="takeinput(this);" class="col-4 classForEvent customBorder bg-light text-dark py-1">5</div>
 									<div onclick="takeinput(this);" class="col-4 classForEvent customBorder bg-light text-dark py-1">6</div>
 								</div>
 
@@ -80,7 +80,7 @@
 
 								<div class="row">
 									<div onclick="takeinput(this);" class="col-4 classForEvent customBorder bg-light text-dark py-1">1</div>
-									<div onclick="takeinput(this);" class="col-4 classForEvent customBorder bg-light text-dark">2</div>
+									<div onclick="takeinput(this);" class="col-4 classForEvent customBorder bg-light text-dark py-1">2</div>
 									<div onclick="takeinput(this);" class="col-4 classForEvent customBorder bg-light text-dark py-1">3</div>
 								</div>
 
@@ -176,6 +176,43 @@
 
 	<script type="text/javascript">
 		
+		
+		// sleep function inplementation
+		const sleep = (milliseconds) => {
+			return new Promise(resolve => setTimeout(resolve, milliseconds))
+		}
+
+
+
+
+		
+		//new model js starts
+		var objDiv = document.getElementsByClassName('classForEvent');
+		for(var i = 0; i<objDiv.length; i++)
+		{
+			objDiv[i].addEventListener("mousedown" , function(){
+				//event.preventDefault();
+				this.classList.remove('bg-light' , 'text-dark');
+				this.classList.add('bg-success');
+				this.style.color = "white";
+
+
+			})
+		}
+
+		for(var i = 0; i<objDiv.length; i++)
+		{
+			objDiv[i].addEventListener("mouseup" , function(){
+				//event.preventDefault();
+				this.classList.remove('bg-success');
+				this.classList.add('bg-light' , 'text-dark');
+				this.style.color = "white";
+			})
+		}
+		
+
+
+
 		//key binding starts here
 		document.addEventListener('keyup' , function(event){
 			event.preventDefault();
@@ -184,156 +221,562 @@
 				if(p.innerHTML == 'Display')
 				{
 					p.innerHTML = '';
-				}
+				}					
 				p.innerHTML += 0;
 
-				
-			}
-			if(event.keyCode==49 || event.keyCode==97){	
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += 1;
+				for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='0')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
 
-				
-			}
-			if(event.keyCode==50 || event.keyCode==98){	
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += 2;
+						var k = objDiv[i];
 
-				
-			}
-			if(event.keyCode==51 || event.keyCode==99){	
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += 3;
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
 
-				
-			}
-			if(event.keyCode==52 || event.keyCode==100){	
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += 4;
+  					}
 
-				
-			}
-			if(event.keyCode==53 || event.keyCode==101){	
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += 5;
+  					doSomething();
+  				}
+  			}
 
-				
-			}
-			if(event.keyCode==54 || event.keyCode==102){	
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += 6;
 
-				
-			}
-			if(event.keyCode==55 || event.keyCode==103){	
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += 7;
+  		}
+  		if(event.keyCode==49 || event.keyCode==97){	
+  			if(p.innerHTML == 'Display')
+  			{
+  				p.innerHTML = '';
+  			}
+  			p.innerHTML += 1;
 
-				
-			}
-			if(event.keyCode==56 || event.keyCode==104){	
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += 8;
+  			for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='1')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
 
-				
-			}
-			if(event.keyCode==57 || event.keyCode==105){	
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += 9;
+						var k = objDiv[i];
 
-				
-			}
-			if(event.keyCode==107){	
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '+';
-				
-				
-			}
-			if(event.keyCode==109){	
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '-';
-				
-				
-			}
-			if(event.keyCode==106){	
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '*';
-				
-				
-			}
-			if(event.keyCode==111){	
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '/';
-				
-				
-			}
-			if(event.keyCode==110){	
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '.';
-				
-				
-			}
-			if(event.keyCode==46){	
-				let val = p.innerHTML;
-				let arr = val.split('');
-				if(p.innerHTML == 'Display' || arr.length < 2)
-				{
-					p.innerHTML = 'Display';
-				}
-				else{
-					let val = p.innerHTML;
-					let arr = val.split('');
-					arr.pop();
-					p.innerHTML = arr.join('');
-				}
-				
-				
-			}
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
 
-		})
-			
+  					}
+
+  					doSomething();
+  				}
+  			}
+
+
+  		}
+  		if(event.keyCode==50 || event.keyCode==98){	
+  			if(p.innerHTML == 'Display')
+  			{
+  				p.innerHTML = '';
+  			}
+  			p.innerHTML += 2;
+
+  			for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='2')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
+
+						var k = objDiv[i];
+
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
+
+  					}
+
+  					doSomething();
+  				}
+  			}
+
+
+  		}
+  		if(event.keyCode==51 || event.keyCode==99){	
+  			if(p.innerHTML == 'Display')
+  			{
+  				p.innerHTML = '';
+  			}
+  			p.innerHTML += 3;
+
+  			for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='3')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
+
+						var k = objDiv[i];
+
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
+
+  					}
+
+  					doSomething();
+  				}
+  			}
+
+
+  		}
+  		if(event.keyCode==52 || event.keyCode==100){	
+  			if(p.innerHTML == 'Display')
+  			{
+  				p.innerHTML = '';
+  			}
+  			p.innerHTML += 4;
+
+  			for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='4')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
+
+						var k = objDiv[i];
+
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
+
+  					}
+
+  					doSomething();
+  				}
+  			}
+
+
+  		}
+  		if(event.keyCode==53 || event.keyCode==101){	
+  			if(p.innerHTML == 'Display')
+  			{
+  				p.innerHTML = '';
+  			}
+  			p.innerHTML += 5;
+
+  			for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='5')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
+
+						var k = objDiv[i];
+
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
+
+  					}
+
+  					doSomething();
+  				}
+  			}
+
+
+  		}
+  		if(event.keyCode==54 || event.keyCode==102){	
+  			if(p.innerHTML == 'Display')
+  			{
+  				p.innerHTML = '';
+  			}
+  			p.innerHTML += 6;
+
+  			for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='6')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
+
+						var k = objDiv[i];
+
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
+
+  					}
+
+  					doSomething();
+  				}
+  			}
+
+
+  		}
+  		if(event.keyCode==55 || event.keyCode==103){	
+  			if(p.innerHTML == 'Display')
+  			{
+  				p.innerHTML = '';
+  			}
+  			p.innerHTML += 7;
+
+  			for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='7')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
+
+						var k = objDiv[i];
+
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
+
+  					}
+
+  					doSomething();
+  				}
+  			}
+
+
+  		}
+  		if(event.keyCode==56 || event.keyCode==104){	
+  			if(p.innerHTML == 'Display')
+  			{
+  				p.innerHTML = '';
+  			}
+  			p.innerHTML += 8;
+
+  			for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='8')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
+
+						var k = objDiv[i];
+
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
+
+  					}
+
+  					doSomething();
+  				}
+  			}
+
+
+  		}
+  		if(event.keyCode==57 || event.keyCode==105){	
+  			if(p.innerHTML == 'Display')
+  			{
+  				p.innerHTML = '';
+  			}
+  			p.innerHTML += 9;
+
+
+  			for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='9')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
+
+						var k = objDiv[i];
+
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
+
+  					}
+
+  					doSomething();
+  				}
+  			}
+
+
+  		}
+  		if(event.keyCode==107){	
+  			if(p.innerHTML == 'Display')
+  			{
+  				p.innerHTML = '';
+  			}
+  			p.innerHTML += '+';
+
+
+  			for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='+')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
+
+						var k = objDiv[i];
+
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
+
+  					}
+
+  					doSomething();
+  				}
+  			}
+
+
+  		}
+  		if(event.keyCode==109){	
+  			if(p.innerHTML == 'Display')
+  			{
+  				p.innerHTML = '';
+  			}
+  			p.innerHTML += '-';
+
+
+  			for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='-')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
+
+						var k = objDiv[i];
+
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
+
+  					}
+
+  					doSomething();
+  				}
+  			}
+
+
+  		}
+  		if(event.keyCode==106){	
+  			if(p.innerHTML == 'Display')
+  			{
+  				p.innerHTML = '';
+  			}
+  			p.innerHTML += '*';
+
+
+  			for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='*')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
+
+						var k = objDiv[i];
+
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
+
+  					}
+
+  					doSomething();
+  				}
+  			}
+
+
+  		}
+  		if(event.keyCode==111){	
+  			if(p.innerHTML == 'Display')
+  			{
+  				p.innerHTML = '';
+  			}
+  			p.innerHTML += '/';
+
+
+  			for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='/')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
+
+						var k = objDiv[i];
+
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
+
+  					}
+
+  					doSomething();
+  				}
+  			}
+
+
+  		}
+  		if(event.keyCode==110){	
+  			if(p.innerHTML == 'Display')
+  			{
+  				p.innerHTML = '';
+  			}
+  			p.innerHTML += '.';
+
+
+  			for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='.')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
+
+						var k = objDiv[i];
+
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
+
+  					}
+
+  					doSomething();
+  				}
+  			}
+
+
+  		}
+  		if(event.keyCode==46){	
+  			let val = p.innerHTML;
+  			let arr = val.split('');
+  			if(p.innerHTML == 'Display' || arr.length < 2)
+  			{
+  				p.innerHTML = 'Display';
+  			}
+  			else{
+  				let val = p.innerHTML;
+  				let arr = val.split('');
+  				arr.pop();
+  				p.innerHTML = arr.join('');
+  			}
+
+
+  			for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='DEL')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
+
+						var k = objDiv[i];
+
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
+
+  					}
+
+  					doSomething();
+  				}
+  			}
+
+
+  		}
+
+  		if(event.keyCode==13){	
+  			
+  			for(var i = 0; i<objDiv.length; i++){
+					if(objDiv[i].innerHTML=='=')
+					{
+						objDiv[i].classList.remove('bg-light' , 'text-dark');
+						objDiv[i].classList.add('bg-success');
+						objDiv[i].style.color = "white";
+
+						var k = objDiv[i];
+
+						// for asynchronous request
+						const doSomething = async () => {
+							await sleep(200)
+  						//do stuff
+  						k.classList.remove('bg-success');
+  						k.classList.add('bg-light' , 'text-dark');
+  						k.style.color = "white";
+
+  					}
+
+  					doSomething();
+  				}
+  			}
+
+
+
+
+  		}
+
+
+  	})
+
 		
 		//onclick input add to display
 		function takeinput(e)
@@ -494,33 +937,12 @@
 
 
 
-		//new model js starts
-		var objDiv = document.getElementsByClassName('classForEvent');
-		for(var i = 0; i<objDiv.length; i++)
-		{
-			objDiv[i].addEventListener("mousedown" , function(){
-				//event.preventDefault();
-				this.classList.remove('bg-light' , 'text-dark');
-				this.classList.add('bg-success');
-				this.style.color = "white";
-
-
-			})
-		}
-
-		for(var i = 0; i<objDiv.length; i++)
-		{
-			objDiv[i].addEventListener("mouseup" , function(){
-				//event.preventDefault();
-				this.classList.remove('bg-success');
-				this.classList.add('bg-light' , 'text-dark');
-				this.style.color = "white";
-			})
-		}
+		
 
 
 
 		// old models js starts
+
 		//on press enter key, it shows result
 		var input = document.getElementById('input');
 		input.addEventListener("keyup" , function(event){

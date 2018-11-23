@@ -1,0 +1,21 @@
+<script>
+	const sleep = (milliseconds) => {
+		return new Promise(resolve => setTimeout(resolve, milliseconds))
+	}
+	
+	// for synchronous request
+	sleep(10000).then(() => {
+		//do something
+		alert('hellow');
+	})
+
+	// for asynchronous request
+	const doSomething = async () => {
+		await sleep(2000)
+  		//do stuff
+		}
+
+	doSomething()
+
+
+</script>
