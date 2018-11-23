@@ -45,7 +45,7 @@
 		<input onclick="inputFun(this)" type="button" name="" value="/" id="div">
 		
 		<br>	
-				
+
 		<input onclick="clearInput()" type="button" name="" id="clearInput" value="Clear">
 		<input style="width: 50px;" onclick="showResult()" type="button" name="" value="=" id="resultButton">
 
@@ -53,6 +53,28 @@
 
 
 	<script type="text/javascript">
+		
+		//on press enter key, it shows result
+		var input = document.getElementById('input');
+		input.addEventListener("keyup" , function(event){
+			event.preventDefault();
+			if(event.keyCode==13){
+				showResult();
+			}
+		})
+
+		//onkey up change background and font color
+		input.addEventListener("keyup" , function(event){
+			event.preventDefault();
+			this.style.background = "green";
+			this.style.color = "white";
+		})
+
+
+
+		input.addEventListener()
+
+		//clear the results and input
 		function clearInput(){
 			document.getElementById('input').value = "";
 			document.getElementById('result').value = "";
@@ -61,12 +83,20 @@
 			document.getElementById('result').style.background = "white";
 			document.getElementById('result').style.color = "black";
 		}
+
+		
+		
+
+
+		//triggers when something has be put
 		function inputFun(e){
 			var p = document.getElementById('input');
 			p.style.background = "green";
 			p.style.color = "white";
 			p.value += e.value;
 		}
+
+		//calculate and shows the result
 		function showResult(){
 			var p = document.getElementById('input');
 			var value = p.value.trim();
