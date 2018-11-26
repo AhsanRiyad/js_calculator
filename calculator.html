@@ -39,10 +39,10 @@
 
 
 @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    .heighForMobile{
-      height: 100vh;
-    }
+  /* For mobile phones: */
+  .heighForMobile{
+    height: 100vh;
+  }
 
 }
 
@@ -153,11 +153,16 @@
     var patDecimal = /\./g;
 
 
-    //calculates the result
-    function calculate(){
+    //calculates the result for operator click
+    function calculateForOperator(){
+      console.log("in the block"+p.innerHTML);
       if(patForOperator.test(p.innerHTML)==true)
       {
-        var match = pat.exec(p.innerHTML)
+        console.log("in the true  block");
+        console.log(p.innerHTML);
+        var match = patForOperator.exec(p.innerHTML.trim());
+        console.log(p.innerHTML);
+        console.log(match);
         var len1 = match[1].split('.').length;
         var len2 = match[3].split('.').length;
         if(len1>2 || len2 >2)
@@ -169,16 +174,28 @@
         }
         else
         {
-          p.innerHTML = eval(match[0]).toFixed(2);
+          var str = match[1]+match[2]+match[3];
+          console.log(str);
+          var result = eval(str);
           p.classList.remove('bg-secondary');
           p.classList.add('bg-success');
+          if(Number.isInteger(result))
+          {
+            let value = parseInt(result , 10);
+            p.innerHTML = value+match[4];
+          }
+          else{
+            p.innerHTML = result.toFixed(2)+match[4];
+
+          }
+
+          
         }
         
       }
       else{
-        p.innerHTML = 'wrong input';
-        p.classList.remove('bg-secondary');
-        p.classList.add('bg-danger');
+        p.classList.remove('bg-success','bg-danger');
+        p.classList.add('bg-secondary');
       }
     }
 
@@ -201,9 +218,20 @@
         }
         else
         {
-          p.innerHTML = eval(match[0]).toFixed(2);
+          var result = eval(match[0]);
           p.classList.remove('bg-secondary');
           p.classList.add('bg-success');
+          if(Number.isInteger(result))
+          {
+            let value = parseInt(result , 10);
+            p.innerHTML = value;
+          }
+          else{
+            p.innerHTML = result.toFixed(2);
+
+          }
+
+          
         }
         
       }
@@ -997,9 +1025,8 @@ if(e.innerHTML=='+')
   {
    p.innerHTML = '';
  }
- p.classList.remove('bg-success','bg-danger');
- p.classList.add('bg-secondary');
  p.innerHTML += '+';
+ calculateForOperator();
 }
 if(e.innerHTML=='-')
 {
@@ -1007,9 +1034,8 @@ if(e.innerHTML=='-')
   {
    p.innerHTML = '';
  }
- p.classList.remove('bg-success','bg-danger');
- p.classList.add('bg-secondary');
  p.innerHTML += '-';
+ calculateForOperator();
 }
 if(e.innerHTML=='*')
 {
@@ -1017,9 +1043,8 @@ if(e.innerHTML=='*')
   {
    p.innerHTML = '';
  }
- p.classList.remove('bg-success','bg-danger');
- p.classList.add('bg-secondary');
  p.innerHTML += '*';
+ calculateForOperator();
 }
 if(e.innerHTML=='/')
 {
@@ -1027,9 +1052,8 @@ if(e.innerHTML=='/')
   {
    p.innerHTML = '';
  }
- p.classList.remove('bg-success','bg-danger');
- p.classList.add('bg-secondary');
  p.innerHTML += '/';
+ calculateForOperator();;
 }
 if(e.innerHTML=='%')
 {
@@ -1037,9 +1061,8 @@ if(e.innerHTML=='%')
   {
    p.innerHTML = '';
  }
- p.classList.remove('bg-success','bg-danger');
- p.classList.add('bg-secondary');
  p.innerHTML += '%';
+ calculateForOperator();
 }
 if(e.innerHTML=='CLR')
 {
