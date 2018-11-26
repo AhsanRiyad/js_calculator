@@ -37,6 +37,15 @@
 	height: 100vh;
 }
 
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .heighForMobile{
+      height: 100vh;
+    }
+
+}
+
 </style>
 
 
@@ -45,9 +54,9 @@
 	
 	<!-- new model starts -->
 	<div class="container">
-		<div class="row justify-content-center mt-md-5">
-			<div class="col-md-5 bg-dark text-white">
-				<div class="row p-2 pt-4 px-4">
+		<div class="row justify-content-center mt-lg-5">
+			<div class="col-lg-5 col-12 bg-dark text-white heighForMobile">
+				<div class="row p-2 pt-4 px-lg-4">
 					<div id="inputAndResult" class="col bg-secondary text-right py-3 h5">Display</div>
 				</div>
 
@@ -140,7 +149,41 @@
 		}
 
 		var pat = /(^[*/+-]?[\d\.]+){1}([%*/+-]){1}([\d\.]+){1}$/;
+    var patForOperator = /(^[*/+-]?[\d\.]+){1}([%*/+-]){1}([\d\.]+){1}([%*/+-]){1}$/;
     var patDecimal = /\./g;
+
+
+    //calculates the result
+    function calculate(){
+      if(patForOperator.test(p.innerHTML)==true)
+      {
+        var match = pat.exec(p.innerHTML)
+        var len1 = match[1].split('.').length;
+        var len2 = match[3].split('.').length;
+        if(len1>2 || len2 >2)
+        {
+          p.innerHTML = 'wrong input';
+          p.classList.remove('bg-secondary');
+          p.classList.add('bg-danger');
+
+        }
+        else
+        {
+          p.innerHTML = eval(match[0]).toFixed(2);
+          p.classList.remove('bg-secondary');
+          p.classList.add('bg-success');
+        }
+        
+      }
+      else{
+        p.innerHTML = 'wrong input';
+        p.classList.remove('bg-secondary');
+        p.classList.add('bg-danger');
+      }
+    }
+
+
+
 
     //calculates the result
     function calculate(){
@@ -171,29 +214,28 @@
       }
     }
 
-		//new model js starts
-		var objDiv = document.getElementsByClassName('classForEvent');
-		for(var i = 0; i<objDiv.length; i++)
-		{
-			objDiv[i].addEventListener("mousedown" , function(){
+    var objDiv = document.getElementsByClassName('classForEvent');
+    for(var i = 0; i<objDiv.length; i++)
+    {
+     objDiv[i].addEventListener("mousedown" , function(){
 				//event.preventDefault();
 				this.classList.remove('bg-light' , 'text-dark');
 				this.classList.add('bg-success');
 				this.style.color = "white";				
 
       })
-		}
+   }
 
-		for(var i = 0; i<objDiv.length; i++)
-		{
-			objDiv[i].addEventListener("mouseup" , function(){
+   for(var i = 0; i<objDiv.length; i++)
+   {
+     objDiv[i].addEventListener("mouseup" , function(){
 				//event.preventDefault();
 				this.classList.remove('bg-success');
 				this.classList.add('bg-light' , 'text-dark');
 				this.style.color = "white";
 			})
-		}
-		
+   }
+
 
 
 
@@ -1027,10 +1069,6 @@ if(e.innerHTML=='DEL')
 
 
 }
-
-
-
-
 </script>
 
 
