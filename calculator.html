@@ -176,13 +176,15 @@
 
 	<script type="text/javascript">
 
+    var p = document.getElementById('inputAndResult');
 		
 		// sleep function inplementation
 		const sleep = (milliseconds) => {
 			return new Promise(resolve => setTimeout(resolve, milliseconds))
 		}
 
-		
+		var pat = /(^[*/+-]?[\d]+){1}([*/+-]){1}([\d]+){1}$/;
+
 		//new model js starts
 		var objDiv = document.getElementsByClassName('classForEvent');
 		for(var i = 0; i<objDiv.length; i++)
@@ -699,7 +701,10 @@
 
 
   		}
-  		if(event.keyCode==46){	
+
+      
+
+  		if(event.keyCode==8){	
   			let val = p.innerHTML;
   			let arr = val.split('');
   			if(p.innerHTML == 'Display' || arr.length < 2)
@@ -755,6 +760,7 @@
 						const doSomething = async () => {
 							await sleep(200)
   						//do stuff
+
   						k.classList.remove('bg-success');
   						k.classList.add('bg-light' , 'text-dark');
   						k.style.color = "white";
@@ -764,6 +770,17 @@
   					doSomething();
   				}
   			}
+        
+        if(pat.test(p.innerHTML)==true)
+        {
+          var match = pat.exec(p.innerHTML)
+          p.innerHTML = eval(match[0]);
+
+
+        }
+        else{
+          p.innerHTML = 'wrong';
+        }
 
 
 
