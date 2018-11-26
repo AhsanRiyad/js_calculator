@@ -169,7 +169,7 @@
 		<br>	
 
 		<input onclick="clearInput()" type="button" name="" id="clearInput" value="Clear">
-		<input style="width: 50px;" onclick="showResult()" type="button" name="" value="=" id="resultButton">
+		<input style="width: 50px;" onclick="inputFun(this)" type="button" name="" value="=" id="resultButton">
 
 	</div>
 	<!-- old model ends -->
@@ -177,13 +177,35 @@
 	<script type="text/javascript">
 
     var p = document.getElementById('inputAndResult');
-		
+
 		// sleep function inplementation
 		const sleep = (milliseconds) => {
 			return new Promise(resolve => setTimeout(resolve, milliseconds))
 		}
 
-		var pat = /(^[*/+-]?[\d]+){1}([*/+-]){1}([\d]+){1}$/;
+		var pat = /(^[*/+-]?[\d\.]+){1}([%*/+-]){1}([\d\.]+){1}$/;
+    var patDecimal = /\./g;
+
+    function calculate(){
+      if(pat.test(p.innerHTML)==true)
+      {
+        var match = pat.exec(p.innerHTML)
+        var len1 = match[1].split('.').length;
+        var len2 = match[3].split('.').length;
+        if(len1>2 || len2 >2)
+        {
+          p.innerHTML = 'wrong input';
+        }
+        else
+        {
+          p.innerHTML = eval(match[0]).toFixed(2);
+        }
+        
+      }
+      else{
+        p.innerHTML = 'wrong input';
+      }
+    }
 
 		//new model js starts
 		var objDiv = document.getElementsByClassName('classForEvent');
@@ -195,7 +217,7 @@
 				this.classList.add('bg-success');
 				this.style.color = "white";				
 
-		})
+      })
 		}
 
 		for(var i = 0; i<objDiv.length; i++)
@@ -702,31 +724,61 @@
 
   		}
 
+      if(event.keyCode==46){         
+        p.innerHTML = 'Display';
+
+
+        for(var i = 0; i<objDiv.length; i++){
+          if(objDiv[i].innerHTML=='CLR')
+          {
+            objDiv[i].classList.remove('bg-light' , 'text-dark');
+            objDiv[i].classList.add('bg-success');
+            objDiv[i].style.color = "white";
+
+            var k = objDiv[i];
+
+            // for asynchronous request
+            const doSomething = async () => {
+              await sleep(200)
+              //do stuff
+              k.classList.remove('bg-success');
+              k.classList.add('bg-light' , 'text-dark');
+              k.style.color = "white";
+
+            }
+
+            doSomething();
+          }
+        }
+
+
+      }
       
 
-  		if(event.keyCode==8){	
-  			let val = p.innerHTML;
-  			let arr = val.split('');
-  			if(p.innerHTML == 'Display' || arr.length < 2)
-  			{
-  				p.innerHTML = 'Display';
-  			}
-  			else{
-  				let val = p.innerHTML;
-  				let arr = val.split('');
-  				arr.pop();
-  				p.innerHTML = arr.join('');
-  			}
+
+      if(event.keyCode==8){	
+       let val = p.innerHTML;
+       let arr = val.split('');
+       if(p.innerHTML == 'Display' || arr.length < 2)
+       {
+        p.innerHTML = 'Display';
+      }
+      else{
+        let val = p.innerHTML;
+        let arr = val.split('');
+        arr.pop();
+        p.innerHTML = arr.join('');
+      }
 
 
-  			for(var i = 0; i<objDiv.length; i++){
-  				if(objDiv[i].innerHTML=='DEL')
-  				{
-  					objDiv[i].classList.remove('bg-light' , 'text-dark');
-  					objDiv[i].classList.add('bg-success');
-  					objDiv[i].style.color = "white";
+      for(var i = 0; i<objDiv.length; i++){
+        if(objDiv[i].innerHTML=='DEL')
+        {
+         objDiv[i].classList.remove('bg-light' , 'text-dark');
+         objDiv[i].classList.add('bg-success');
+         objDiv[i].style.color = "white";
 
-  					var k = objDiv[i];
+         var k = objDiv[i];
 
 						// for asynchronous request
 						const doSomething = async () => {
@@ -770,188 +822,183 @@
   					doSomething();
   				}
   			}
-        
-        if(pat.test(p.innerHTML)==true)
-        {
-          var match = pat.exec(p.innerHTML)
-          p.innerHTML = eval(match[0]);
 
 
-        }
-        else{
-          p.innerHTML = 'wrong';
-        }
+        calculate();
 
 
 
+      }
 
-  		}
 
-
-  	})
+    })
 
 
 		//onclick input add to display
 		function takeinput(e)
 		{	
 			var p = document.getElementById('inputAndResult');
-			if(e.innerHTML=='0')
-			{
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '0';
-			}
-			if(e.innerHTML=='1')
-			{
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '1';
-			}
-			if(e.innerHTML=='2')
-			{
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '2';
-			}
-			if(e.innerHTML=='3')
-			{
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '3';
-			}
-			if(e.innerHTML=='4')
-			{
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '4';
-			}
-			if(e.innerHTML=='5')
-			{
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '5';
-			}
-			if(e.innerHTML=='6')
-			{
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '6';
-			}
-			if(e.innerHTML=='7')
-			{
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '7';
-			}
-			if(e.innerHTML=='8')
-			{
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '8';
-			}
-			if(e.innerHTML=='9')
-			{
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '9';
-			}
-			if(e.innerHTML=='.')
-			{
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '.';
-			}
-			if(e.innerHTML=='+')
-			{
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '+';
-			}
-			if(e.innerHTML=='-')
-			{
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '-';
-			}
-			if(e.innerHTML=='*')
-			{
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '*';
-			}
-			if(e.innerHTML=='/')
-			{
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '/';
-			}
-			if(e.innerHTML=='%')
-			{
-				if(p.innerHTML == 'Display')
-				{
-					p.innerHTML = '';
-				}
-				p.innerHTML += '%';
-			}
-			if(e.innerHTML=='CLR')
-			{
-				p.innerHTML = 'Display';
-			}
-			if(e.innerHTML=='DEL')
-			{
-				var val = p.innerHTML;
-				var arr = val.split('');
-				if(p.innerHTML == 'Display' || arr.length < 2)
-				{
-					p.innerHTML = 'Display';
-				}
-				else{
-					var val = p.innerHTML;
-					var arr = val.split('');
-					arr.pop();
-					p.innerHTML = arr.join('');
-				}
+      if(e.innerHTML=='=')
+      {
+        calculate();
+      }
+      if(e.innerHTML=='0')
+      {
+        if(p.innerHTML == 'Display')
+        {
+         p.innerHTML = '';
+       }
+       p.innerHTML += '0';
+     }
+     if(e.innerHTML=='1')
+     {
+      if(p.innerHTML == 'Display')
+      {
+       p.innerHTML = '';
+     }
+     p.innerHTML += '1';
+   }
+   if(e.innerHTML=='2')
+   {
+    if(p.innerHTML == 'Display')
+    {
+     p.innerHTML = '';
+   }
+   p.innerHTML += '2';
+ }
+ if(e.innerHTML=='3')
+ {
+  if(p.innerHTML == 'Display')
+  {
+   p.innerHTML = '';
+ }
+ p.innerHTML += '3';
+}
+if(e.innerHTML=='4')
+{
+  if(p.innerHTML == 'Display')
+  {
+   p.innerHTML = '';
+ }
+ p.innerHTML += '4';
+}
+if(e.innerHTML=='5')
+{
+  if(p.innerHTML == 'Display')
+  {
+   p.innerHTML = '';
+ }
+ p.innerHTML += '5';
+}
+if(e.innerHTML=='6')
+{
+  if(p.innerHTML == 'Display')
+  {
+   p.innerHTML = '';
+ }
+ p.innerHTML += '6';
+}
+if(e.innerHTML=='7')
+{
+  if(p.innerHTML == 'Display')
+  {
+   p.innerHTML = '';
+ }
+ p.innerHTML += '7';
+}
+if(e.innerHTML=='8')
+{
+  if(p.innerHTML == 'Display')
+  {
+   p.innerHTML = '';
+ }
+ p.innerHTML += '8';
+}
+if(e.innerHTML=='9')
+{
+  if(p.innerHTML == 'Display')
+  {
+   p.innerHTML = '';
+ }
+ p.innerHTML += '9';
+}
+if(e.innerHTML=='.')
+{
+  if(p.innerHTML == 'Display')
+  {
+   p.innerHTML = '';
+ }
+ p.innerHTML += '.';
+}
+if(e.innerHTML=='+')
+{
+  if(p.innerHTML == 'Display')
+  {
+   p.innerHTML = '';
+ }
+ p.innerHTML += '+';
+}
+if(e.innerHTML=='-')
+{
+  if(p.innerHTML == 'Display')
+  {
+   p.innerHTML = '';
+ }
+ p.innerHTML += '-';
+}
+if(e.innerHTML=='*')
+{
+  if(p.innerHTML == 'Display')
+  {
+   p.innerHTML = '';
+ }
+ p.innerHTML += '*';
+}
+if(e.innerHTML=='/')
+{
+  if(p.innerHTML == 'Display')
+  {
+   p.innerHTML = '';
+ }
+ p.innerHTML += '/';
+}
+if(e.innerHTML=='%')
+{
+  if(p.innerHTML == 'Display')
+  {
+   p.innerHTML = '';
+ }
+ p.innerHTML += '%';
+}
+if(e.innerHTML=='CLR')
+{
+  p.innerHTML = 'Display';
+}
+if(e.innerHTML=='DEL')
+{
+  var val = p.innerHTML;
+  var arr = val.split('');
+  if(p.innerHTML == 'Display' || arr.length < 2)
+  {
+   p.innerHTML = 'Display';
+ }
+ else{
+   var val = p.innerHTML;
+   var arr = val.split('');
+   arr.pop();
+   p.innerHTML = arr.join('');
+ }
 
-			}
-
-
-
-		}
-
-
+}
 
 
-		
+
+}
+
+
+
+
+
 
 
 
