@@ -238,7 +238,7 @@
 			event.preventDefault();
 			var p = document.getElementById('inputAndResult');
 			if(event.keyCode==48 || event.keyCode==96){	
-				if(p.innerHTML == 'Display')
+				if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
 				{
 					p.innerHTML = '';
 				}					
@@ -270,7 +270,7 @@
 
   		}
   		if(event.keyCode==49 || event.keyCode==97){	
-  			if(p.innerHTML == 'Display')
+  			if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   			{
   				p.innerHTML = '';
   			}
@@ -302,7 +302,7 @@
 
   		}
   		if(event.keyCode==50 || event.keyCode==98){	
-  			if(p.innerHTML == 'Display')
+  			if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   			{
   				p.innerHTML = '';
   			}
@@ -334,7 +334,7 @@
 
   		}
   		if(event.keyCode==51 || event.keyCode==99){	
-  			if(p.innerHTML == 'Display')
+  			if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   			{
   				p.innerHTML = '';
   			}
@@ -366,7 +366,7 @@
 
   		}
   		if(event.keyCode==52 || event.keyCode==100){	
-  			if(p.innerHTML == 'Display')
+  			if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   			{
   				p.innerHTML = '';
   			}
@@ -398,7 +398,7 @@
 
   		}
   		if(event.keyCode==53 || event.keyCode==101){	
-  			if(p.innerHTML == 'Display')
+  			if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   			{
   				p.innerHTML = '';
   			}
@@ -430,7 +430,7 @@
 
   		}
   		if(event.keyCode==54 || event.keyCode==102){	
-  			if(p.innerHTML == 'Display')
+  			if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   			{
   				p.innerHTML = '';
   			}
@@ -462,7 +462,7 @@
 
   		}
   		if(event.keyCode==55 || event.keyCode==103){	
-  			if(p.innerHTML == 'Display')
+  			if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   			{
   				p.innerHTML = '';
   			}
@@ -494,7 +494,7 @@
 
   		}
   		if(event.keyCode==56 || event.keyCode==104){	
-  			if(p.innerHTML == 'Display')
+  			if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   			{
   				p.innerHTML = '';
   			}
@@ -526,7 +526,7 @@
 
   		}
   		if(event.keyCode==57 || event.keyCode==105){	
-  			if(p.innerHTML == 'Display')
+  			if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   			{
   				p.innerHTML = '';
   			}
@@ -559,7 +559,7 @@
 
   		}
   		if(event.keyCode==107){	
-  			if(p.innerHTML == 'Display')
+  			if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   			{
   				p.innerHTML = '';
   			}
@@ -592,7 +592,7 @@
 
   		}
   		if(event.keyCode==109){	
-  			if(p.innerHTML == 'Display')
+  			if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   			{
   				p.innerHTML = '';
   			}
@@ -625,7 +625,7 @@
 
   		}
   		if(event.keyCode==106){	
-  			if(p.innerHTML == 'Display')
+  			if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   			{
   				p.innerHTML = '';
   			}
@@ -658,7 +658,7 @@
 
   		}
   		if(event.keyCode==111){	
-  			if(p.innerHTML == 'Display')
+  			if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   			{
   				p.innerHTML = '';
   			}
@@ -691,7 +691,7 @@
 
   		}
   		if(event.keyCode==110){	
-  			if(p.innerHTML == 'Display')
+  			if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   			{
   				p.innerHTML = '';
   			}
@@ -759,7 +759,7 @@
       if(event.keyCode==8){	
        let val = p.innerHTML;
        let arr = val.split('');
-       if(p.innerHTML == 'Display' || arr.length < 2)
+       if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input' || arr.length < 2)
        {
         p.innerHTML = 'Display';
       }
@@ -844,7 +844,7 @@
       }
       if(e.innerHTML=='0')
       {
-        if(p.innerHTML == 'Display')
+        if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
         {
          p.innerHTML = '';
        }
@@ -852,7 +852,7 @@
      }
      if(e.innerHTML=='1')
      {
-      if(p.innerHTML == 'Display')
+      if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
       {
        p.innerHTML = '';
      }
@@ -860,7 +860,7 @@
    }
    if(e.innerHTML=='2')
    {
-    if(p.innerHTML == 'Display')
+    if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
     {
      p.innerHTML = '';
    }
@@ -868,7 +868,7 @@
  }
  if(e.innerHTML=='3')
  {
-  if(p.innerHTML == 'Display')
+  if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   {
    p.innerHTML = '';
  }
@@ -876,7 +876,7 @@
 }
 if(e.innerHTML=='4')
 {
-  if(p.innerHTML == 'Display')
+  if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   {
    p.innerHTML = '';
  }
@@ -884,7 +884,7 @@ if(e.innerHTML=='4')
 }
 if(e.innerHTML=='5')
 {
-  if(p.innerHTML == 'Display')
+  if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   {
    p.innerHTML = '';
  }
@@ -892,7 +892,7 @@ if(e.innerHTML=='5')
 }
 if(e.innerHTML=='6')
 {
-  if(p.innerHTML == 'Display')
+  if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   {
    p.innerHTML = '';
  }
@@ -900,7 +900,7 @@ if(e.innerHTML=='6')
 }
 if(e.innerHTML=='7')
 {
-  if(p.innerHTML == 'Display')
+  if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   {
    p.innerHTML = '';
  }
@@ -908,7 +908,7 @@ if(e.innerHTML=='7')
 }
 if(e.innerHTML=='8')
 {
-  if(p.innerHTML == 'Display')
+  if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   {
    p.innerHTML = '';
  }
@@ -916,7 +916,7 @@ if(e.innerHTML=='8')
 }
 if(e.innerHTML=='9')
 {
-  if(p.innerHTML == 'Display')
+  if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   {
    p.innerHTML = '';
  }
@@ -924,7 +924,7 @@ if(e.innerHTML=='9')
 }
 if(e.innerHTML=='.')
 {
-  if(p.innerHTML == 'Display')
+  if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   {
    p.innerHTML = '';
  }
@@ -932,7 +932,7 @@ if(e.innerHTML=='.')
 }
 if(e.innerHTML=='+')
 {
-  if(p.innerHTML == 'Display')
+  if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   {
    p.innerHTML = '';
  }
@@ -940,7 +940,7 @@ if(e.innerHTML=='+')
 }
 if(e.innerHTML=='-')
 {
-  if(p.innerHTML == 'Display')
+  if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   {
    p.innerHTML = '';
  }
@@ -948,7 +948,7 @@ if(e.innerHTML=='-')
 }
 if(e.innerHTML=='*')
 {
-  if(p.innerHTML == 'Display')
+  if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   {
    p.innerHTML = '';
  }
@@ -956,7 +956,7 @@ if(e.innerHTML=='*')
 }
 if(e.innerHTML=='/')
 {
-  if(p.innerHTML == 'Display')
+  if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   {
    p.innerHTML = '';
  }
@@ -964,7 +964,7 @@ if(e.innerHTML=='/')
 }
 if(e.innerHTML=='%')
 {
-  if(p.innerHTML == 'Display')
+  if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input')
   {
    p.innerHTML = '';
  }
@@ -978,7 +978,7 @@ if(e.innerHTML=='DEL')
 {
   var val = p.innerHTML;
   var arr = val.split('');
-  if(p.innerHTML == 'Display' || arr.length < 2)
+  if(p.innerHTML == 'Display' || p.innerHTML == 'wrong input' || arr.length < 2)
   {
    p.innerHTML = 'Display';
  }
